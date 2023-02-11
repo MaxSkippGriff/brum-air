@@ -2,10 +2,26 @@
 
 ## Scrape air quality data 
 
+This Django-Scrapy app scrapes air quality data for King's Heath, Birmingham, and displays it on 
+a single page. Data includes daily and weekly air quality forecasts.
+
+## How it works
+
+There are five main steps:
+
+1. First, Client sends request to crawl URL
+2. Then, Django tells Scrapy to crawl that URL
+3. And Django tells the Client that crawling has begun
+4. Scrapy then scrapes URL and saves data in database
+5. Finally, Django grabs the data and returns it to Client
+
+
+
 ## Technologies
 
 * Python 3.8
 * Scrapy 2.7
+* Django 4.1.6
 
 ## Instructions
 
@@ -20,43 +36,31 @@
 
     ``` pipenv install ```
 
+## Using scrapy shell
+
+Once you've executed the instructions above, start up the scrapy shell,
+
+``` scrapy shell ```
+
+Then fetch the accweather url with the following:
+
+``` fetch('https://www.accuweather.com/en/gb/birmingham/b5-5/air-quality-index/326966') ```
+
+Now you can create custom css selectors to grab data from the accweather site. For example, if you want 
+to get Birmingham's pollution level today, simply type:
+
+``` response.css('div.aq-number ::text').get().strip() ``` 
+
+
 ## Running scraper
 
 To run the scraper, navigate to the directory containing scrapy.cfg and run the following command:
 
-```scrapy crawl scrapelegislation -o <filename>.json```
+```scrapy crawl airpollution -o <filename>.json```
 
 You can export data to json or csv.
 
-## Moving between pages
-
-There is no pagination or 'next page' button but there are alphabetical buttons A-Z, 
-so in the parse method I get all alphabetical button values (A-Z) and add each element
-value as a param to the URL.
-
-The updated URL is then sent to the parse_page method which iterates through each
-row0 element using the get() method to scrape the title, source_url, and date. The
-strip() method is used to remove whitespace.
-
-## Saving data to Amazon AWS S3 Bucket
-
-* Create AWS S3 bucket
-* Generate access credentials
-* Add and create user
-* Install botocore
-* Update settings.py with:
-
-```
-FEEDS = {
-         "s3://scrapy-playbook/%(name)s/%(name)s_%(time)s.jsonl": {
-         "format": "jsonlines",
-         }
-      }
-AWS_ACCESS_KEY_ID = 'YOUR_AWS_ACCESS_KEY_ID'
-AWS_SECRET_ACCESS_KEY = 'YOUR_AWS_SECRET_ACCESS_KEY'
-```
-* Scraped data saved in JSON files will now be saved to S3 bucket
-
+## Integrating with Django
 
 ## Technologies
 
