@@ -10,11 +10,14 @@ class AirpollutionSpider(scrapy.Spider):
 
 
         # Get days of week from today to three days into the future
-        days = response.css('p.day-of-week ::text').getall()
+        # days = response.css('p.day-of-week ::text').getall()
         # Remove duplicate 'today' item from list
-        days.remove(days[0])
+        # days.remove(days[0])
         # Loop through remaining days
-        for day in days:
+        #days = response.css('div.air-quality-daily-list').getall()
+        # days = response.css('div.air-quality-content ::text').getall()
+
+        for day in response.css('div.air-quality-daily-list'):
             # 1. Get pollution index number
             pollution_index = day.css('div.aq-number ::text').get().strip()
             # 2. Get classifcation e.g. fair, good
