@@ -9,11 +9,11 @@ a single page. Data includes daily and weekly air quality forecasts.
 
 There are five main steps:
 
-1. First, Client sends request to crawl URL
-2. Then, Django tells Scrapy to crawl that URL
-3. And Django tells the Client that crawling has begun
-4. Scrapy then scrapes URL and saves data in database
-5. Finally, Django grabs the data and returns it to Client
+1. The client sends a request to crawl specified url
+2. Django tells Scrapy to crawl this url
+3. Django tells the client that crawling has begun
+4. Scrapy scrapes url and saves data in a database
+5. Django grabs the data from the database and returns it to the client
 
 
 
