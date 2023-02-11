@@ -1,4 +1,4 @@
-## Brum-Air
+# Brum-Air
 
 ## Scrape air quality data 
 
