@@ -10,27 +10,27 @@ class AirpollutionSpider(scrapy.Spider):
 
 
         # Get days of week from today to three days into the future
-        # days = response.css('p.day-of-week ::text').getall()
+        days = response.css('p.day-of-week ::text').getall()
         # Remove duplicate 'today' item from list
-        # days.remove(days[0])
+        days.remove(days[0])
         # Loop through remaining days
         # days = response.css('div.air-quality-daily-list').getall()
         # days = response.css('div.air-quality-content ::text').getall()
+        rows = response.css('div.air-quality-daily-list')
+        for day in days: 
+            # 1. Get pollution index number
+            pollution_index = rows.css('div.aq-number ::text').get().strip()
+            # 2. Get classifcation e.g. fair, good
+            pollution_string = rows.css('p.category-text ::text').get()
+            # 3. Get description of quality
+            pollution_descrip = rows.css('p.statement ::text').get().strip()
+            # 4. Get date 
+            date = rows.css('p.date ::text').get().strip()
 
-        day = response.css('div.air-quality-daily-list')
-        # 1. Get pollution index number
-        pollution_index = day.css('div.aq-number ::text').get().strip()
-        # 2. Get classifcation e.g. fair, good
-        pollution_string = day.css('p.category-text ::text').get()
-        # 3. Get description of quality
-        pollution_descrip = day.css('p.statement ::text').get().strip()
-        # 4. Get date 
-        date = day.css('p.date ::text').get().strip()
 
-
-        yield {
-            "Date": date,
-            "Pollution index": pollution_index,
-            "Classification": pollution_string,
-            "Description": pollution_descrip
-        }
+            yield {
+                "Date": date,
+                "Pollution index": pollution_index,
+                "Classification": pollution_string,
+                "Description": pollution_descrip
+            }
