@@ -4,7 +4,7 @@ import scrapy
 class AirpollutionSpider(scrapy.Spider):
     name = 'airpollution'
     allowed_domains = ['www.accuweather.com']
-    start_urls = ['https://www.accuweather.com/en/gb/kings-heath/b14-7/weather-forecast/321753']
+    start_urls = ['https://www.accuweather.com/en/gb/kings-heath/b14-7/air-quality-index/321753']
 
     def parse(self, response):
         # 1. Get pollution index number
