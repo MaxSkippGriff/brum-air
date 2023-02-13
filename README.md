@@ -1,5 +1,7 @@
 # Brum-Air
 
+![Optional Text](../images/brum-air.png)
+
 ## Scrape air quality data 
 
 This Django-Scrapy app scrapes air quality data for King's Heath, Birmingham, and displays it on 
