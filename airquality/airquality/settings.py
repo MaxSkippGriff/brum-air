@@ -1,3 +1,16 @@
+import os
+import sys
+
+# Integrate Django
+
+sys.path.append(os.path.dirname(os.path.abspath('.')))
+os.environ['DJANGO_SETTINGS_MODULE'] = 'iCrawler.settings'
+
+import django
+django.setup()
+
+
+
 # Scrapy settings for airquality project
 #
 # For simplicity, this file contains only settings considered important or
