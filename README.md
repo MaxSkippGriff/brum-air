@@ -1,6 +1,6 @@
 # Brum-Air
 
-![Optional Text](../main/images/brum-air.png)
+![Optional Text](../main/images/brum-air.png){ width="800" height="600" style="display: block; margin: 0 auto" }
 
 ## Scrape air quality data 
 
