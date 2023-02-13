@@ -1,7 +1,7 @@
 # Brum-Air
 
 <p align="center">
-(../main/images/brum-air.png#center)
+    <img width="200" src="../main/images/brum-air.png" alt="brum-air">
 </p>
 
 
