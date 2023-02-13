@@ -1,6 +1,6 @@
 # Brum-Air
 
-![Optional Text](../images/brum-air.png)
+![Optional Text](https://github.com/MaxSkippGriff/brum-air/tree/main/images)
 
 ## Scrape air quality data 
 
