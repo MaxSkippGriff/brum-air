@@ -7,14 +7,12 @@ a single page. Data includes daily and weekly air quality forecasts.
 
 ## How it works
 
-There are five main steps:
+There are four main steps:
 
-1. The client sends a request to crawl specified url
-2. Django tells Scrapy to crawl this url
-3. Django tells the client that crawling has begun
-4. Scrapy scrapes url and saves data in a database
-5. Django grabs the data from the database and returns it to the client
-
+1. The client sends a request to crawl a specified url
+2. Django tells Scrapy to crawl this url and tells the client that crawling has begun
+3. Scrapy scrapes url and saves data in a database
+4. Django grabs the data from the database and returns it to the client
 
 
 ## Technologies
@@ -66,3 +64,7 @@ You can export data to json or csv.
 
 * Python 3.8
 * Scrapy 2.7
+
+## References
+
+I used the following medium article to integrate Scrapy into a Django app: https://alioguzhan.medium.com/how-to-use-scrapy-with-django-application-c16fabd0e62e
