@@ -5,9 +5,9 @@
 </p>
 
 
-## Scrape air quality data 
+## Scrape air quality data
 
-This Django-Scrapy app scrapes air quality data for King's Heath, Birmingham, and displays it on 
+This Django-Scrapy app scrapes air quality data for King's Heath, Birmingham, and displays it on
 a single page. Data includes daily and weekly air quality forecasts.
 
 ## How it works
@@ -32,7 +32,7 @@ There are four main steps:
 2. Create virtual environment
 
     ``` python3 -m venv env ```
-3. Activate virtual environment 
+3. Activate virtual environment
 
     ``` source env/bin/activate ```
 4. Dependencies are saved in the Pipfile. To install, run the following command:
@@ -49,10 +49,10 @@ Then fetch the accweather url with the following:
 
 ``` fetch('https://www.accuweather.com/en/gb/birmingham/b5-5/air-quality-index/326966') ```
 
-Now you can create custom css selectors to grab data from the accweather site. For example, if you want 
+Now you can create custom css selectors to grab data from the accweather site. For example, if you want
 to get Birmingham's pollution level today, simply type:
 
-``` response.css('div.aq-number ::text').get().strip() ``` 
+``` response.css('div.aq-number ::text').get().strip() ```
 
 
 ## Running scraper
@@ -69,6 +69,11 @@ You can export data to json or csv.
 
 * Python 3.8
 * Scrapy 2.7
+
+## To do:
+
+- Find average air quality for UK cities
+- Connect to PostgreSQL database
 
 ## References
 
